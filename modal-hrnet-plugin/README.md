@@ -1,12 +1,60 @@
-# React + Vite
+# modal-hrnet-plugin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modale réutilisable pour applications React (exemple d'intégration pour HRnet)
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ce composant React fournit une modale simple et accessible pour afficher des messages de confirmation, d’erreur ou d’alerte.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install modal-hrnet-plugin
+
+```
+
+## Utilisation
+
+```jsx
+import React, { useState } from 'react';
+import Modal from 'modal-hrnet-plugin';
+
+function App() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setOpen(true)}>
+        Ouvrir la modale
+      </button>
+      <Modal
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        message="Ceci est un test de modale !"
+      />
+    </div>
+  );
+}
+
+export default App;
+
+```
+
+## Props
+
+
+
+| Prop    | Type     | Obligatoire | Description                                  |
+| ------- | -------- | ----------- | -------------------------------------------- |
+| isOpen  | bool     | Oui         | Contrôle l’ouverture de la modale            |
+| onClose | function | Oui         | Fonction appelée à la fermeture de la modale |
+| message | string   | Oui         | Message à afficher dans la modale            |
+
+
+## Auteur
+
+Houda Baheda
+
+## Licence
+
+MIT
